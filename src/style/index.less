@@ -22,7 +22,7 @@ body {
 .duncan-root {
 	display: block;
 	height: auto;
-	margin: 8px;
+	margin: 2px;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -30,12 +30,94 @@ body {
 	bottom: 0;
 
 	font-family: 'Lato', sans-serif;
+	display: grid;
+	grid-template-rows: 5% 10% 85%;
+	grid-template-columns: 15% 85%;
+}
+
+.duncan-header {
+	grid-row-start: 2;
+	grid-row-end: 3;
+	grid-column-start: 1;
+	grid-column-end: 3;
+
+	justify-content: center;
+	align-content: center;
+	float: left;
 }
 
 .duncan-main {
-	display: grid;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	grid-column-start: 1;
+	grid-column-end: 3;
 
-	
+	padding: 8px;
+}
+
+.duncan-menu-bar {
+	grid-row-start: 1;
+	grid-row-end: 2;
+	grid-column-start: 1;
+	grid-column-end: 3;
+
+	background-color: rgb(48, 48, 58);
+	color: rgb(230, 230, 230);
+
+	display: flex;
+	flex-direction: row;
+	justify-items: center;
+}
+
+.duncan-menu-option-text {
+	vertical-align: center;
+}
+
+.duncan-menu-option {
+	text-align: center;
+	transition: background-color 150ms linear, color 150ms linear;
+	margin: auto;
+	height: auto;
+}
+
+.duncan-menu-option + .duncan-menu-option {
+	margin-left: 0;
+}
+
+.duncan-menu-option:hover {
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+}
+
+.duncan-my-work-entry {
+	border-bottom: thin rgb(200, 200, 200) solid;
+	border-top: thin rgb(200, 200, 200) solid;
+	padding: 12px;
+
+	width: auto;
+	height: auto;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.duncan-my-work-entry + .duncan-my-work-entry {
+	border-top: 0;
+}
+
+.duncan-my-work-entry-title {
+	font-weight: 600;
+}
+
+.duncan-my-work-entry-description {
+	font-style: italic;
 }
 
 .duncan-my-work-entry-url {

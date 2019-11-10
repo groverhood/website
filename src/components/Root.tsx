@@ -32,9 +32,9 @@ export class Root extends React.Component<{}, RootState> {
 		return (
 			<div className="duncan-root">
 				<Header />
+				<MenuBar onOptionSelect={opt => this.switchPage(opt)}
+						 options={Root.options} />
 				<div className="duncan-main">
-					<MenuBar onOptionSelect={opt => this.switchPage(opt)}
-							options={Root.options} />
 					<SelectedOption />
 				</div>
 			</div>

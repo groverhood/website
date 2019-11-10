@@ -7,12 +7,21 @@ const octokit = new Octokit();
 interface MyWorkEntryProps {
 	url: string;
 	name: string;
-	description: string
+	description: string;
+	id: number;
 }
 
 function MyWorkEntry(props: MyWorkEntryProps) {
+	const style: React.CSSProperties = {
+		animationDelay: `${props.id * 115}ms`,
+		animationDuration: '165ms',
+		animationName: 'fadein',
+		animationFillMode: 'backwards',
+		animationTimingFunction: 'linear'
+	};
+
 	return (
-		<div className="duncan-my-work-entry">
+		<div className="duncan-my-work-entry" style={style}>
 			<div className="duncan-my-work-entry-title">{props.name}</div>
 			<div className="duncan-my-work-entry-description">{props.description}</div>
 			<div className="duncan-my-work-entry-url" onClick={ev => window.open(props.url)}>{props.url}</div>
@@ -55,7 +64,7 @@ export default class MyWork extends React.Component<{}, MyWorkState> {
 					this.state.projects.map((props, key) => <MyWorkEntry url={props.url} 
 																description={props.description}
 																name={props.name}
-																key={key} />)
+																key={key} id={key} />)
 				}
 			</div>
 		)
