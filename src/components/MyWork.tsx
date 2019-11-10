@@ -6,7 +6,6 @@ const octokit = new Octokit();
 
 interface MyWorkEntryProps {
 	url: string;
-	topics: string[];
 	name: string;
 	description: string
 }
@@ -16,10 +15,7 @@ function MyWorkEntry(props: MyWorkEntryProps) {
 		<div className="duncan-my-work-entry">
 			<div className="duncan-my-work-entry-title">{props.name}</div>
 			<div className="duncan-my-work-entry-description">{props.description}</div>
-			<div className="duncan-my-work-entry-topic-container">
-				{props.topics.map(topic => <div className="duncan-my-work-entry-topic">{topic}</div>)}
-			</div>
-			<div className="duncan-my-work-entry-url">{props.url}</div>
+			<div className="duncan-my-work-entry-url" onClick={ev => window.open(props.url)}>{props.url}</div>
 		</div>
 	)
 }
@@ -39,18 +35,16 @@ export default class MyWork extends React.Component<{}, MyWorkState> {
 
 	public componentDidMount() {
 		let setState = this.setState.bind(this);
-		let projects = this.state.projects;
 		
 		octokit
 		.repos
 		.listForUser({ username: 'groverhood' })
 		.then(({ data }) =>
-			setState({ projects: [...projects, {
-				url: data.html_url,
-				topics: data.topics,
-				name: data.name,
-				description: data.description,
-			}]})
+			setState({ projects: data.map(repo => ({
+				url: repo.html_url,
+				name: repo.name,
+				description: repo.description,
+			}))})
 		);
 	}
 
@@ -59,10 +53,9 @@ export default class MyWork extends React.Component<{}, MyWorkState> {
 			<div className="duncan-my-work">
 				{
 					this.state.projects.map((props, key) => <MyWorkEntry url={props.url} 
-																topics={props.topics} 
 																description={props.description}
 																name={props.name}
-																key={key}/>)
+																key={key} />)
 				}
 			</div>
 		)

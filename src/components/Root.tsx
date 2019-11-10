@@ -42,7 +42,6 @@ export class Root extends React.Component<{}, RootState> {
 	}
 
 	private switchPage(option: Option) {
-		alert('page');
 		this.setState({ selectedOption: option });
 	}
 }
