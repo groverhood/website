@@ -3,6 +3,17 @@
 
 @link-color: rgb(129, 159, 216);
 
+.duncan-title {
+	font-weight: bold;
+	font-size: 38pt;
+}
+
+.duncan-subtitle {
+	font-weight: 300;
+	color: rgb(170, 170, 170);
+	font-size: 18pt;
+}
+
 html {
 	height: 100%;
 }
@@ -22,7 +33,6 @@ body {
 .duncan-root {
 	display: block;
 	height: auto;
-	margin: 2px;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -30,8 +40,9 @@ body {
 	bottom: 0;
 
 	font-family: 'Lato', sans-serif;
+	color: rgb(30, 30, 30);
 	display: grid;
-	grid-template-rows: 5% 10% 85%;
+	grid-template-rows: 5% 20% 75%;
 	grid-template-columns: 15% 85%;
 }
 
@@ -43,7 +54,16 @@ body {
 
 	justify-content: center;
 	align-content: center;
-	float: left;
+	
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+}
+
+.duncan-header-text-region {
+	margin: auto;
+	padding: 8px;
+	border-bottom: thin rgb(200, 200, 200) solid;
 }
 
 .duncan-main {
@@ -52,7 +72,14 @@ body {
 	grid-column-start: 1;
 	grid-column-end: 3;
 
-	padding: 8px;
+	display: flex;
+	flex-direction: row;
+}
+
+.duncan-main-region {
+	width: 70%;
+	height: 100%;
+	margin: auto;
 }
 
 .duncan-menu-bar {
@@ -67,6 +94,16 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-items: center;
+}
+
+.duncan-menu-bar-region {
+	margin: auto;
+
+	display: flex;
+	flex-direction: row;
+	justify-items: center;
+
+	width: 70%;
 }
 
 .duncan-menu-option-text {
@@ -89,13 +126,42 @@ body {
 	color: rgb(255, 255, 255);
 }
 
-.duncan-my-work-entry {
+.duncan-my-work {
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: 20% 80%;
+}
+
+.duncan-my-github-projects {
+	grid-column-start: 1;
+	grid-column-end: 2;
+
+	display: flex;
+	flex-direction: column;
+	padding: 12px;
+
+	background-color: rgb(242, 247, 255);
+	border: rgb(185, 193, 207) thin solid;
+	border-radius: 8px;
+
+	transition: height 150ms linear;
+}
+
+.duncan-my-github-projects-title {
+	font-weight: bold;
+	font-size: 20pt;
+	margin: 12px;
+}
+
+.duncan-my-github-project {
 	border-bottom: thin rgb(200, 200, 200) solid;
 	border-top: thin rgb(200, 200, 200) solid;
 	padding: 12px;
 
 	width: auto;
 	height: auto;
+
+	overflow-wrap: break-word;
 }
 
 @keyframes fadein {
@@ -108,23 +174,23 @@ body {
 	}
 }
 
-.duncan-my-work-entry + .duncan-my-work-entry {
+.duncan-my-github-project + .duncan-my-github-project {
 	border-top: 0;
 }
 
-.duncan-my-work-entry-title {
+.duncan-my-github-project-title {
 	font-weight: 600;
 }
 
-.duncan-my-work-entry-description {
+.duncan-my-github-project-description {
 	font-style: italic;
 }
 
-.duncan-my-work-entry-url {
+.duncan-my-github-project-url {
 	color: @link-color;
 	text-decoration-line: underline;
 }
 
-.duncan-my-work-entry-url:hover {
+.duncan-my-github-project-url:hover {
 	cursor: pointer;
 }

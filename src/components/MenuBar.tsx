@@ -28,13 +28,15 @@ export class MenuBar extends React.Component<MenuBarProps> {
 	public render() {
 		return (
 			<div className="duncan-menu-bar">
-				{
-					this.props.options.map(
-						(opt, key) => <MenuOption 	name={formatOptionName(opt)}
-													onClick={() => this.props.onOptionSelect(opt)}
-													key={key} />
-					)
-				}
+				<div className="duncan-menu-bar-region">
+					{
+						this.props.options.map(
+							(opt, key) => <MenuOption 	name={formatOptionName(opt)}
+														onClick={() => this.props.onOptionSelect(opt)}
+														key={key} />
+						)
+					}	
+				</div>
 			</div>
 		)
 	}
