@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Octokit from '@octokit/rest';
+import ReactMarkdown from 'react-markdown';
 
 const octokit = new Octokit();
 
