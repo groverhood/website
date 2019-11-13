@@ -7,8 +7,6 @@ import { join } from 'path';
 
 const port = 4040;
 
-console.log(__dirname);
-
 const app = express();
 app.use(express.static(join(__dirname, 'public')));
 app.get('/', (_, res) => {
@@ -20,6 +18,7 @@ app.get('/', (_, res) => {
 				<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
 				<link rel="stylesheet" type="text/css" href="http://localhost:${port}/index.css"/>
 				<script src="http://localhost:${port}/bundle.js" defer></script>
+				<title>Duncan Huntsinger</title>
 			</head>
 			<body>
 				<div id="duncan-react-root">${ReactDOMServer.renderToString(<Root />)}</div>
