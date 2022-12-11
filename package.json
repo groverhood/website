@@ -3,7 +3,7 @@
 		"react": "16.11.0",
 		"react-dom": "16.11.0",
 		"react-markdown": "4.2.2",
-		"express": "4.17.1",
+		"express": "4.17.3",
 		"@octokit/rest": "16.34.1"
 	},
 	"devDependencies": {
